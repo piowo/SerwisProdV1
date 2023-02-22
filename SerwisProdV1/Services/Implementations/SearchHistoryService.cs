@@ -32,6 +32,22 @@ namespace SerwisProdV1.Services.Implementations
             return new OperationSuccesDTO<Module> { Message = "Success" };
         }
 
+        private int ModuleHasValue(SearchHistory searchHistory)
+        {
+            int counter = 0;
+
+            if (!(searchHistory.ModuleName1 == string.Empty))
+                counter++;
+            if (!(searchHistory.ModuleName2 == string.Empty))
+                counter++;
+            if (!(searchHistory.ModuleName3 == string.Empty))
+                counter++;
+            if (!(searchHistory.ModuleName4 == string.Empty))
+                counter++;
+
+            return counter;
+        }
+
         public ResultCostDTO GetSearchHistory(string cityName, ModuleListDTO moduleListDTO)
         {
             var city = cityService.GetCityByName(cityName);
@@ -82,7 +98,14 @@ namespace SerwisProdV1.Services.Implementations
             }
             return new ResultCostDTO { InSearchHistory = false };
         }
-    
+        
+        OperationSuccesDTO<IList<SearchHistory>> ISearchHistoryService.GetSearchHistories()
+        {
+            List<SearchHistory> searchHistories = context.SearchHistory.ToList();
+            return new OperationSuccesDTO<IList<SearchHistory>> { Message = "Success", Result = searchHistories };
+        }
+
+
     
     }
 }
