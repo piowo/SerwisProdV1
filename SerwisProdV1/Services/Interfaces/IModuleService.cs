@@ -12,7 +12,7 @@ namespace SerwisProdV1.Services.Interfaces
         Module GetModuleByName(string moduleName);
         OperationSuccesDTO<List<Module>> GetModules();
         OperationSuccesDTO<Module> AddModule(Module module);
-        OperationSuccesDTO<Module> UpdateModule(Module module);
-        OperationSuccesDTO<Module> DeleteModule(string name);
+        OperationResultDTO UpdateModule(Module module);
+        OperationResultDTO DeleteModule(string name);
     }
 }

@@ -36,18 +36,25 @@ namespace SerwisProdV1.Services.Implementations
             return new OperationSuccesDTO<List<Module>> { Message = "Success", Result = modules };
         }
 
-        public OperationSuccesDTO<Module> DeleteModule(string name)
+        public OperationResultDTO DeleteModule(string name)
         {
-            var module = context.Module.Where(m => m.Name == name).FirstOrDefault();
+            var module = GetModuleByName(name);
+            if (module == null)
+            {
+                return new OperationErrorDTO { Code = 404, Message = $"Module with name: {name} doesn't exist" };
+            }
             context.Module.Remove(module);
             context.SaveChanges();
             return new OperationSuccesDTO<Module> { Message = "Success" };
         }
 
-        public OperationSuccesDTO<Module> UpdateModule(Module module)
+        public OperationResultDTO UpdateModule(Module module)
         {
-            var mod = context.Module.Where(m => m.Name == module.Name).FirstOrDefault();
-            mod.Name = module.Name;
+            var mod = GetModuleByName(module.Name);
+            if (module == null)
+            {
+                return new OperationErrorDTO { Code = 404, Message = $"Module with name: {module.Name} doesn't exist" };
+            }
             mod.Price = module.Price;
             mod.Weight = module.Weight;
             mod.AssemblyTime = module.AssemblyTime;

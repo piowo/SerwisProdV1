@@ -51,7 +51,7 @@ namespace SerwisProdV1.Services.Implementations
 
         public OperationResultDTO UpdateTransportCost(string cityName, double transportCost)
         {
-            var updateCity = context.City.Where(city => city.Name == cityName).FirstOrDefault();
+            var updateCity = GetCityByName(cityName);
 
             if (updateCity == null)
             {
@@ -65,7 +65,7 @@ namespace SerwisProdV1.Services.Implementations
 
         public OperationResultDTO UpdateCostOfWorkingHour(string cityName, double workingHourCost)
         {
-            var updateCity = context.City.Where(city => city.Name == cityName).FirstOrDefault();
+            var updateCity = GetCityByName(cityName);
 
             if (updateCity == null)
             {
