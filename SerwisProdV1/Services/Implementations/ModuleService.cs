@@ -51,7 +51,7 @@ namespace SerwisProdV1.Services.Implementations
         public OperationResultDTO UpdateModule(Module module)
         {
             var mod = GetModuleByName(module.Name);
-            if (module == null)
+            if (mod == null)
             {
                 return new OperationErrorDTO { Code = 404, Message = $"Module with name: {module.Name} doesn't exist" };
             }
