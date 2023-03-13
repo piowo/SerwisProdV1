@@ -105,7 +105,5 @@ namespace SerwisProdV1.Services.Implementations
             return new OperationSuccesDTO<IList<SearchHistory>> { Message = "Success", Result = searchHistories };
         }
 
-
-    
     }
 }
