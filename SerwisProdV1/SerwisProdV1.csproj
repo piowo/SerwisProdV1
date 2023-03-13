@@ -150,6 +150,7 @@
     <Compile Include="Services\Implementations\CityService.cs" />
     <Compile Include="Services\Implementations\ModuleService.cs" />
     <Compile Include="Services\Implementations\SearchHistoryService.cs" />
+    <Compile Include="Services\Implementations\ShowResultService.cs" />
     <Compile Include="Services\Interfaces\ICalculatorCostService.cs" />
     <Compile Include="Services\Interfaces\ICityService.cs" />
     <Compile Include="Services\Interfaces\IModuleService.cs" />
