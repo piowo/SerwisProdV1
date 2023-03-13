@@ -24,7 +24,7 @@ namespace SerwisProdV1.Services.Implementations
             this.cityService = cityService;
         }
 
-        public ResultCostDTO IShowResultService.PresentResult(string cityName, ModuleListDTO moduleListDTO)
+        ResultCostDTO IShowResultService.PresentResult(string cityName, ModuleListDTO moduleListDTO)
         {
             var checkInHistory = searchHistoryService.GetSearchHistory(cityName, moduleListDTO);
 

@@ -87,3 +87,15 @@ C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.dll
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.pdb
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.migracja1.resources
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.csproj.GenerateResource.cache
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\SimpleInjector.dll
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\SimpleInjector.Integration.Web.dll
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\SimpleInjector.Integration.Web.Mvc.dll
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\SimpleInjector.Integration.WebApi.dll
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\System.Net.Http.Formatting.dll
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\System.Web.Http.dll
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\SimpleInjector.xml
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\SimpleInjector.Integration.Web.xml
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\SimpleInjector.Integration.Web.Mvc.xml
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\SimpleInjector.Integration.WebApi.xml
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\System.Net.Http.Formatting.xml
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\System.Web.Http.xml
