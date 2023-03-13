@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace SerwisProdV1.Controllers
 {
-    public class HomeController : Controller
+    public class CitiesController : Controller
     {
+        // GET: Cities
         public ActionResult Index()
         {
             return View();
-        }       
+        }
     }
 }
