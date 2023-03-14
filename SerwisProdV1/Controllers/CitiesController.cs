@@ -21,7 +21,7 @@ namespace SerwisProdV1.Controllers
         // GET: Cities
         public ViewResult Index()
         {
-            return View();
+            return View(cityService.GetCities().Result);
         }
         
         [HttpGet]
@@ -32,7 +32,7 @@ namespace SerwisProdV1.Controllers
         }
 
         [HttpPost]
-        public ViewResult AddCity(City city)
+        public ActionResult AddCity(City city)
         {
            if (ModelState.IsValid)
             {
@@ -40,8 +40,9 @@ namespace SerwisProdV1.Controllers
 
                 if (responce.Message.Equals("Success"))
                 {
-                    return View("Good");
-                } else
+                    return Redirect("Index");
+                }
+                else
                 {
                     return View("Bad");
                 }
