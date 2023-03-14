@@ -156,6 +156,10 @@
     <Compile Include="Migrations\202302171941145_migracja1.designer.cs">
       <DependentUpon>202302171941145_migracja1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303141550581_Migracja 2.cs" />
+    <Compile Include="Migrations\202303141550581_Migracja 2.designer.cs">
+      <DependentUpon>202303141550581_Migracja 2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsDTO\ModuleListDTO.cs" />
     <Compile Include="ModelsDTO\OperationErrorDTO.cs" />
@@ -212,10 +216,13 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Cities\Index.cshtml" />
+    <Content Include="Views\Cities\AddCity.cshtml" />
+    <Content Include="Views\Cities\Good.cshtml" />
+    <Content Include="Views\Cities\Bad.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Cities\" />
     <Folder Include="Views\Modules\" />
     <Folder Include="Views\ShowResults\" />
   </ItemGroup>
@@ -235,6 +242,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202302171941145_migracja1.resx">
       <DependentUpon>202302171941145_migracja1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303141550581_Migracja 2.resx">
+      <DependentUpon>202303141550581_Migracja 2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

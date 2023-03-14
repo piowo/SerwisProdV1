@@ -17,6 +17,7 @@ namespace SerwisProdV1.Services.Implementations
             this.context = context;
         }
 
+
         public OperationResultDTO AddCity(City city)
         {
             context.City.Add(city);
