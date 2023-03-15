@@ -49,5 +49,65 @@ namespace SerwisProdV1.Controllers
             }
             return View();
         }
+
+        [HttpPost]
+        public ActionResult UpdateCity()
+        {
+            int cityId = Convert.ToInt32(Request["Id"]);
+            return View(cityService.GetCityById(cityId));
+        }
+
+        [HttpPost]
+        public ActionResult FinalUpdateCity(City city)
+        {
+            if (ModelState.IsValid)
+            {
+                var responce = cityService.UpdateCostOfWorkingHour(city.Name, city.CostOfWorkingHour);
+
+                if (!responce.Message.Equals("Success"))
+                {
+                    return View("Bad");
+                }
+
+                responce = cityService.UpdateTransportCost(city.Name, city.TransportCost);
+
+                if (responce.Message.Equals("Success"))
+                {
+                    return Redirect("Index");
+                }
+                else
+                {
+                    return View("Bad");
+                }
+            }
+            return View("UpdateCity",city);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteCity()
+        {
+            int cityId = Convert.ToInt32(Request["Id"]);
+            return View(cityService.GetCityById(cityId));
+        }
+
+        [HttpPost]
+        public ActionResult FinalDeleteCity()
+        {
+            
+                if (Request["Odpowiedz"] == "Tak")
+                {
+                    var cityId = Convert.ToInt32(Request["CityId"]);
+                    var responce = cityService.DeleteCity(cityId);
+
+                    if (!responce.Message.Equals("Success"))
+                    {
+                        ViewBag.wiadomosc = responce.Message;
+                        return View("Bad");
+                    }
+                    
+                }
+                return Redirect("Index");
+        }
+
     }
 }

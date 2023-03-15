@@ -17,19 +17,12 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 @Html.ActionLink("Odśwież", "Index", "Cities", new { area = "" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("Powróć", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Dodaj", "AddCity", "Cities")</li>
-                    <li>@Html.ActionLink("Modyfikuj", "UpdateCity", "Cities")</li>
-                    <li>@Html.ActionLink("Usuń", "DeleteCity", "Cities")</li>
                 </ul>
             </div>
         </div>
@@ -44,6 +37,8 @@
                     <th>Nazwa</th>
                     <th>Koszt transportu</th>
                     <th>Koszt 1 godziny roboczej</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -54,6 +49,20 @@
                         <td>@rek.Name</td>
                         <td>@rek.TransportCost</td>
                         <td>@rek.CostOfWorkingHour</td>
+                        <td>
+                            @using (Html.BeginForm("UpdateCity", "Cities"))
+                            {
+                                <input type="hidden" name="Id" value="@rek.Id" />
+                                <input type="submit" value="Modyfikuj" />
+                            }
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("DeleteCity", "Cities"))
+                            {
+                                <input type="hidden" name="Id" value="@rek.Id" />
+                                <input type="submit" value="Usuń" />
+                            }
+                        </td>
                     </tr>
                 }
             </tbody>

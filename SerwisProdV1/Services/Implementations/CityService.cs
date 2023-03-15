@@ -30,6 +30,11 @@ namespace SerwisProdV1.Services.Implementations
             return context.City.Where(city => city.Name == cityName).FirstOrDefault();
         }
 
+        public City GetCityById(int cityId)
+        {
+            return context.City.Where(city => city.Id == cityId).FirstOrDefault();
+        }
+
         public OperationSuccesDTO<IList<City>> GetCities()
         {
             List<City> cities = context.City.ToList();
@@ -49,6 +54,21 @@ namespace SerwisProdV1.Services.Implementations
 
             return new OperationSuccesDTO<Module> { Message = "Success" };
         }
+
+        public OperationResultDTO DeleteCity(int cityId)
+        {
+            var city = GetCityById(cityId);
+
+            if (city == null)
+            {
+                return new OperationErrorDTO { Code = 404, Message = $"City with Id: {cityId} doesn't exist" };
+            }
+            context.City.Remove(city);
+            context.SaveChanges();
+
+            return new OperationSuccesDTO<Module> { Message = "Success" };
+        }
+
 
         public OperationResultDTO UpdateTransportCost(string cityName, double transportCost)
         {
