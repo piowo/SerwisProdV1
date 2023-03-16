@@ -1,0 +1,80 @@
+﻿
+@model SerwisProdV1.Models.Module
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Usuń miasto</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Powróć", "Index", "Modules", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>Dane części (modułu), które zamierzasz usunąć</h4></div>
+        <div class="panel-body">
+            <table class="table table-sm table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nr</th>
+                        <th>Nazwa</th>
+                        <th>Kod</th>
+                        <th>Cena</th>
+                        <th>Czas wykonania</th>
+                        <th>Masa</th>
+                        <th>Opis</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.Id</td>
+                        <td>@Model.Name</td>
+                        <td>@Model.Code</td>
+                        <td>@Model.Price</td>
+                        <td>@Model.AssemblyTime</td>
+                        <td>@Model.Weight</td>
+                        <td>@Model.Description</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <br />
+            <br />
+
+            @using (Html.BeginForm("FinalDeleteModule", "Modules"))
+            {
+                <div class="form-group text-center">
+                    <input type="hidden" name="ModuleId" value="@Model.Id" />
+                    <label>Czy jesteś pewien ?</label>
+                    <select name="Odpowiedz">
+                        <option value="">Wybierz odpowiedź</option>
+                        <option value="Tak">Tak</option>
+                        <option value="Nie">Nie</option>
+                    </select>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Wykonaj" />
+                </div>
+            }
+        </div>
+    </div>
+
+</body>
+</html>

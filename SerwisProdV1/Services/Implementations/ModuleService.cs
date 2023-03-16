@@ -30,6 +30,11 @@ namespace SerwisProdV1.Services.Implementations
             return context.Module.Where(module => module.Name == moduleName).FirstOrDefault();
         }
 
+        public Module GetModuleById(int moduleId)
+        {
+            return context.Module.Where(module => module.Id == moduleId).FirstOrDefault();
+        }
+
         public OperationSuccesDTO<List<Module>> GetModules()
         {
             List<Module> modules = context.Module.ToList();
@@ -42,6 +47,18 @@ namespace SerwisProdV1.Services.Implementations
             if (module == null)
             {
                 return new OperationErrorDTO { Code = 404, Message = $"Module with name: {name} doesn't exist" };
+            }
+            context.Module.Remove(module);
+            context.SaveChanges();
+            return new OperationSuccesDTO<Module> { Message = "Success" };
+        }
+
+        public OperationResultDTO DeleteModule(int Id)
+        {
+            var module = GetModuleById(Id);
+            if (module == null)
+            {
+                return new OperationErrorDTO { Code = 404, Message = $"Module with Id: {Id} doesn't exist" };
             }
             context.Module.Remove(module);
             context.SaveChanges();

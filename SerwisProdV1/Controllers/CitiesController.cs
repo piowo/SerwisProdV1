@@ -101,7 +101,7 @@ namespace SerwisProdV1.Controllers
 
                     if (!responce.Message.Equals("Success"))
                     {
-                        ViewBag.wiadomosc = responce.Message;
+                        
                         return View("Bad");
                     }
                     

@@ -1,0 +1,74 @@
+﻿
+@model SerwisProdV1.Models.Module
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Modyfikuj miasto</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/validationForm.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Powróć", "Index", "Modules", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>Podaj nowe dane dla części (modułu) nr @Model.Id</h4></div>
+        <div class="panel-body">
+            @using (Html.BeginForm("FinalUpdateModule", "Modules", FormMethod.Post, new { @id = "Form1" }))
+            {
+                @Html.ValidationSummary()
+
+                <div class="form-group">
+                    <label>Nazwa:</label>
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @readonly = true })
+                </div>
+                <div class="form-group">
+                    <label>Kod:</label>
+                    @Html.TextBoxFor(x => x.Code, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Cena:</label>
+                    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Czas wykonania:</label>
+                    @Html.TextBoxFor(x => x.AssemblyTime, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Masa:</label>
+                    @Html.TextBoxFor(x => x.Weight, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Opis:</label>
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Wyślij dane" />
+                </div>
+            }
+        </div>
+    </div>
+    <script type="text/javascript">
+        $("body").on("submit", "#Form1", function () {
+            return confirm("Czy jesteś pewien ?");
+        });
+    </script>
+
+</body>
+</html>

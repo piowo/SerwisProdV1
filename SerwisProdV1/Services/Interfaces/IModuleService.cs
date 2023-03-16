@@ -10,9 +10,11 @@ namespace SerwisProdV1.Services.Interfaces
     public interface IModuleService
     {
         Module GetModuleByName(string moduleName);
+        Module GetModuleById(int moduleId);
         OperationSuccesDTO<List<Module>> GetModules();
         OperationSuccesDTO<Module> AddModule(Module module);
         OperationResultDTO UpdateModule(Module module);
         OperationResultDTO DeleteModule(string name);
+        OperationResultDTO DeleteModule(int Id);
     }
 }

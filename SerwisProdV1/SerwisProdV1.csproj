@@ -160,6 +160,14 @@
     <Compile Include="Migrations\202303141550581_Migracja 2.designer.cs">
       <DependentUpon>202303141550581_Migracja 2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303160906169_Migracja 3.cs" />
+    <Compile Include="Migrations\202303160906169_Migracja 3.designer.cs">
+      <DependentUpon>202303160906169_Migracja 3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303161034159_Migracja 4.cs" />
+    <Compile Include="Migrations\202303161034159_Migracja 4.designer.cs">
+      <DependentUpon>202303161034159_Migracja 4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsDTO\ModuleListDTO.cs" />
     <Compile Include="ModelsDTO\OperationErrorDTO.cs" />
@@ -222,10 +230,14 @@
     <Content Include="Views\Cities\Bad.cshtml" />
     <Content Include="Views\Cities\UpdateCity.cshtml" />
     <Content Include="Views\Cities\DeleteCity.cshtml" />
+    <Content Include="Views\Modules\Index.cshtml" />
+    <Content Include="Views\Modules\AddModule.cshtml" />
+    <Content Include="Views\Modules\UpdateModule.cshtml" />
+    <Content Include="Views\Modules\DeleteModule.cshtml" />
+    <Content Include="Views\Modules\Bad.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Modules\" />
     <Folder Include="Views\ShowResults\" />
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +259,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303141550581_Migracja 2.resx">
       <DependentUpon>202303141550581_Migracja 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303160906169_Migracja 3.resx">
+      <DependentUpon>202303160906169_Migracja 3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303161034159_Migracja 4.resx">
+      <DependentUpon>202303161034159_Migracja 4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

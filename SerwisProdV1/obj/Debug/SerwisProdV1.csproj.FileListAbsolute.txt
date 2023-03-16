@@ -100,3 +100,5 @@ C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\System.Net.Http.Format
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\System.Web.Http.xml
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.csprojAssemblyReference.cache
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja2.resources
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja3.resources
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja4.resources
