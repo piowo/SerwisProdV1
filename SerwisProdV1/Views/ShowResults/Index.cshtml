@@ -1,0 +1,83 @@
+﻿@model SerwisProdV1.Services.Implementations.SHelpObjectWithCity
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lista miast</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Odśwież", "Index", "ShowResults", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Powróć", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Dodaj", "AddSearchHistory", "ShowResults")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <br /><br />
+        <h2>Lista wprowadzonych gotowych wyrobów wraz z kosztami produkcji</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Nr</th>
+                    <th>Nazwa</th>
+                    <th>Powiązane miasto</th>
+                    <th>Moduły (części składowe)</th>
+                    <th>Koszt produkcji</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                @foreach (var rek in Model.sHList) 
+                {
+                    <tr>
+                        <td>@rek.Id</td>
+                        <td>@rek.Name</td>
+                        <td>@Model.cities[rek.CityId]</td>
+                        <td>
+                            <select>
+                                <option>Wyswietl wybrane części składowe</option>
+                                <option>@if (!rek.ModuleName1.IsEmpty()) { @rek.ModuleName1 }</option>
+                                <option>@if (!rek.ModuleName2.IsEmpty()) { @rek.ModuleName2 }</option>
+                                <option>@if (!rek.ModuleName3.IsEmpty()) { @rek.ModuleName3 }</option>
+                                <option>@if (!rek.ModuleName4.IsEmpty()) { @rek.ModuleName4 }</option>
+                            </select>
+                        </td>
+                        <td>@rek.ProductionCost</td>
+                        <td>
+                            @using (Html.BeginForm("UpdateSearchHistory", "ShowResults"))
+                            {
+
+                                <input type="hidden" name="Id" value="@rek.Id" />
+                                <input type="submit" value="Modyfikuj" />
+                            }
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("DeleteSearchHistory", "ShowResults"))
+                            {
+                                <input type="hidden" name="Id" value="@rek.Id" />
+                                <input type="submit" value="Usuń" />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

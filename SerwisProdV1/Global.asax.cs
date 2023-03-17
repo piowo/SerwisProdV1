@@ -30,6 +30,7 @@ namespace SerwisProdV1
             container.Register<HomeController>(Lifestyle.Scoped);
             container.Register<CitiesController>(Lifestyle.Scoped);
             container.Register<ModulesController>(Lifestyle.Scoped);
+            container.Register<ShowResultsController>(Lifestyle.Scoped);
             container.Register<CalculatorContext>(Lifestyle.Scoped);
             container.Register<ICityService, CityService>(Lifestyle.Scoped);
             container.Register<IModuleService, ModuleService>(Lifestyle.Scoped);

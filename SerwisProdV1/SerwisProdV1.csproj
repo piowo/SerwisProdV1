@@ -168,6 +168,18 @@
     <Compile Include="Migrations\202303161034159_Migracja 4.designer.cs">
       <DependentUpon>202303161034159_Migracja 4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202303171547251_Migracja 5.cs" />
+    <Compile Include="Migrations\202303171547251_Migracja 5.designer.cs">
+      <DependentUpon>202303171547251_Migracja 5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303172320266_Migracja 6.cs" />
+    <Compile Include="Migrations\202303172320266_Migracja 6.designer.cs">
+      <DependentUpon>202303172320266_Migracja 6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303172348251_Migracja 7.cs" />
+    <Compile Include="Migrations\202303172348251_Migracja 7.designer.cs">
+      <DependentUpon>202303172348251_Migracja 7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelsDTO\ModuleListDTO.cs" />
     <Compile Include="ModelsDTO\OperationErrorDTO.cs" />
@@ -183,6 +195,7 @@
     <Compile Include="Services\Implementations\CityService.cs" />
     <Compile Include="Services\Implementations\ModuleService.cs" />
     <Compile Include="Services\Implementations\SearchHistoryService.cs" />
+    <Compile Include="Services\Implementations\SHelpObjectWithCity.cs" />
     <Compile Include="Services\Implementations\ShowResultService.cs" />
     <Compile Include="Services\Interfaces\ICalculatorCostService.cs" />
     <Compile Include="Services\Interfaces\ICityService.cs" />
@@ -235,10 +248,11 @@
     <Content Include="Views\Modules\UpdateModule.cshtml" />
     <Content Include="Views\Modules\DeleteModule.cshtml" />
     <Content Include="Views\Modules\Bad.cshtml" />
+    <Content Include="Views\ShowResults\Index.cshtml" />
+    <Content Include="Views\ShowResults\AddSearchHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ShowResults\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -265,6 +279,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303161034159_Migracja 4.resx">
       <DependentUpon>202303161034159_Migracja 4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303171547251_Migracja 5.resx">
+      <DependentUpon>202303171547251_Migracja 5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303172320266_Migracja 6.resx">
+      <DependentUpon>202303172320266_Migracja 6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303172348251_Migracja 7.resx">
+      <DependentUpon>202303172348251_Migracja 7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

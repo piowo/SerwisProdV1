@@ -98,7 +98,10 @@ C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\SimpleInjector.Integra
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\SimpleInjector.Integration.WebApi.xml
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\System.Net.Http.Formatting.xml
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\bin\System.Web.Http.xml
-C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.csprojAssemblyReference.cache
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja2.resources
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja3.resources
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja4.resources
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja5.resources
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.csprojAssemblyReference.cache
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja6.resources
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja7.resources

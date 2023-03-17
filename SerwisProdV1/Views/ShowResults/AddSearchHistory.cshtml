@@ -1,0 +1,97 @@
+﻿@model SerwisProdV1.Models.SearchHistory
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dodaj miasto</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/validationForm.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Powróć", "Index", "ShowResults", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>Podaj dane dla definiowanego gotowego wyrobu</h4></div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+
+                <div class="form-group">
+                    <label>Nazwa:</label>
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Nazwa powiązanego miasta:</label>
+                    <select id="CityId" name="CityId" class="form-control">
+                        <option value="">Wybierz miasto</option>
+                        @foreach (System.Collections.DictionaryEntry city in ViewBag.cities)
+                        {
+                            <option value=@city.Value>@city.Key</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nazwa części składowej nr 1</label>
+                    <select id="ModuleName1" name="ModuleName1" class="form-control">
+                        <option value="">Wybierz część składową</option>
+                        @foreach (string module in ViewBag.modulesnames)
+                        {
+                            <option value=@module>@module</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nazwa części składowej nr 2</label>
+                    <select id="ModuleName2" name="ModuleName2" class="form-control">
+                        <option value="Brak">Wybierz część składową</option>
+                        @foreach (string module in ViewBag.modulesNames)
+                        {
+                            <option value=@module>@module</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nazwa części składowej nr 3</label>
+                    <select id="ModuleName3" name="ModuleName3" class="form-control">
+                        <option value="Brak">Wybierz część składową</option>
+                        @foreach (string module in ViewBag.modulesNames)
+                        {
+                            <option value=@module>@module</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nazwa części składowej nr 4</label>
+                    <select id="ModuleName4" name="ModuleName4" class="form-control">
+                        <option value="Brak">Wybierz część składową</option>
+                        @foreach (string module in ViewBag.modulesNames)
+                        {
+                            <option value=@module>@module</option>
+                        }
+                    </select>
+                </div>
+                
+                <div class="text-center">
+                    <input type="submit" value="Wyślij dane" />
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
