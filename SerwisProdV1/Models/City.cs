@@ -21,6 +21,5 @@ namespace SerwisProdV1.Models
         [RegularExpression(@"\d+",ErrorMessage = "Proszę podać prawidłową wartość liczbową")]
         public double CostOfWorkingHour { get; set; }
 
-        public virtual SearchHistory SearchHistory { get; set;  }
     }
 }

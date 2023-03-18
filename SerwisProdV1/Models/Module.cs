@@ -31,6 +31,5 @@ namespace SerwisProdV1.Models
         [Required(ErrorMessage = "Proszę podać opis")]
         public string Description { get; set; }
 
-        public virtual SearchHistory SearchHistory { get; set; }
     }
 }

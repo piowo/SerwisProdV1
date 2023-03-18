@@ -34,9 +34,7 @@ namespace SerwisProdV1
             container.Register<CalculatorContext>(Lifestyle.Scoped);
             container.Register<ICityService, CityService>(Lifestyle.Scoped);
             container.Register<IModuleService, ModuleService>(Lifestyle.Scoped);
-            container.Register<ICalculatorCostService, CalculatorCostService>(Lifestyle.Scoped);
             container.Register<ISearchHistoryService, SearchHistoryService>(Lifestyle.Scoped);
-            container.Register<IShowResultService, ShowResultService>(Lifestyle.Scoped);
 
             container.Verify();
 
