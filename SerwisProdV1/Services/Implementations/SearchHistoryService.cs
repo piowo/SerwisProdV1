@@ -13,23 +13,64 @@ namespace SerwisProdV1.Services.Implementations
         private readonly CalculatorContext context;
         private readonly IModuleService moduleService;
         private readonly ICityService cityService;
+        
+        
 
         public SearchHistoryService(
             CalculatorContext context,
             IModuleService moduleService,
-            ICityService cityService)
+            ICityService cityService
+            )
         {
             this.context = context;
             this.moduleService = moduleService;
             this.cityService = cityService;
+            
+        }
+
+        double CalculateCost(SearchHistory sH)
+        {
+            var city = cityService.GetCityById(sH.CityId);
+
+            ModuleListDTO moduleList = new ModuleListDTO();
+            moduleList.ModuleList = new List<string>();
+            if (sH.ModuleName1 != "Brak") moduleList.ModuleList.Add(sH.ModuleName1);
+            if (sH.ModuleName2 != "Brak") moduleList.ModuleList.Add(sH.ModuleName2);
+            if (sH.ModuleName3 != "Brak") moduleList.ModuleList.Add(sH.ModuleName3);
+            if (sH.ModuleName4 != "Brak") moduleList.ModuleList.Add(sH.ModuleName4);
+
+            return CalculateCost(city, moduleList);
+        }
+
+        double CalculateCost(City city, ModuleListDTO moduleListDTO)
+        {
+            var modulesCost = city.TransportCost;
+
+            foreach (string moduleName in moduleListDTO.ModuleList)
+            {
+                var module = moduleService.GetModuleByName(moduleName);
+                modulesCost = modulesCost + module.Price + (module.AssemblyTime * city.CostOfWorkingHour);
+            }
+
+            modulesCost = modulesCost * 1.3;
+
+            return modulesCost;
         }
 
         public OperationResultDTO AddSearchHistory(SearchHistory searchHistory)
         {
+           
+            searchHistory.ProductionCost = CalculateCost(searchHistory);
             context.SearchHistory.Add(searchHistory);
             context.SaveChanges();
 
             return new OperationSuccesDTO<Module> { Message = "Success" };
+        }
+
+        public SearchHistory GetSearchHistoryById(int Id)
+        {
+           
+            return context.SearchHistory.Where(x => x.Id == Id).FirstOrDefault();
         }
 
         private int ModuleHasValue(SearchHistory searchHistory)
@@ -103,6 +144,36 @@ namespace SerwisProdV1.Services.Implementations
         {
             List<SearchHistory> searchHistories = context.SearchHistory.ToList();
             return new OperationSuccesDTO<IList<SearchHistory>> { Message = "Success", Result = searchHistories };
+        }
+
+        public OperationResultDTO UpdateSearchHistory(SearchHistory sH)
+        {
+            var mod = GetSearchHistoryById (sH.Id);
+            if (mod == null)
+            {
+                return new OperationErrorDTO { Code = 404, Message = $"SearchHistory with Id: {sH.Id} doesn't exist" };
+            }
+            mod.Name = sH.Name;
+            mod.ModuleName1 = sH.ModuleName1;
+            mod.ModuleName2 = sH.ModuleName2;
+            mod.ModuleName3 = sH.ModuleName3;
+            mod.ModuleName4 = sH.ModuleName4;
+            mod.CityId = sH.CityId;
+            mod.ProductionCost = CalculateCost(sH);
+            context.SaveChanges();
+            return new OperationSuccesDTO<SearchHistory> { Message = "Success" };
+        }
+
+        public OperationResultDTO DeleteSearchHistory(int Id)
+        {
+            var sH = GetSearchHistoryById(Id);
+            if (sH == null)
+            {
+                return new OperationErrorDTO { Code = 404, Message = $"SearchHistory with Id: {Id} doesn't exist" };
+            }
+            context.SearchHistory.Remove(sH);
+            context.SaveChanges();
+            return new OperationSuccesDTO<Module> { Message = "Success" };
         }
 
     }

@@ -27,10 +27,12 @@ namespace SerwisProdV1.Services.Implementations
             this.searchHistoryService = searchHistoryService;
         }
 
+       
+
         OperationResultDTO ICalculatorCostService.CalculateCost(string cityName, ModuleListDTO moduleListDTO)
         {
             var city = cityService.GetCityByName(cityName);
-
+            
             if (city == null)
             {
                 return new OperationErrorDTO { Code = 404, Message = $"City with name: {cityName} doesn't exist" };
@@ -55,7 +57,7 @@ namespace SerwisProdV1.Services.Implementations
             return new OperationSuccesDTO<ResultCostDTO>
             {
                 Message = "Success",
-                Result = new ResultCostDTO { Cost = modulesCost, InSearchHistory = false }
+                Result = new ResultCostDTO { Cost = modulesCost, InSearchHistory = true}
             };
             
         }

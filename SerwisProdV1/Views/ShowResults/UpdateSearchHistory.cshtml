@@ -1,4 +1,5 @@
-﻿@model SerwisProdV1.Models.SearchHistory
+﻿
+@model SerwisProdV1.Models.SearchHistory
 
 @{
     Layout = null;
@@ -9,10 +10,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Dodaj miasto</title>
+    <title>Modyfikuj miasto</title>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <link href="~/Content/validationForm.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -26,12 +28,12 @@
     <br />
     <br />
     <div class="panel panel-success">
-        <div class="panel-heading text-center"><h4>Podaj dane dla definiowanego gotowego wyrobu</h4></div>
+        <div class="panel-heading text-center"><h4>Podaj nowe dane dla gotowego wyrobu nr @Model.Id</h4></div>
         <div class="panel-body">
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("FinalUpdateSearchHistory", "ShowResults", FormMethod.Post, new { @id = "Form1" }))
             {
                 @Html.ValidationSummary()
-
+                <input type="hidden" name="Id" id="Id" value=@Model.Id />
                 <div class="form-group">
                     <label>Nazwa:</label>
                     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
@@ -86,12 +88,17 @@
                         }
                     </select>
                 </div>
-                
                 <div class="text-center">
                     <input type="submit" value="Wyślij dane" />
                 </div>
             }
         </div>
     </div>
+    <script type="text/javascript">
+        $("body").on("submit", "#Form1", function () {
+            return confirm("Czy jesteś pewien ?");
+        });
+    </script>
+
 </body>
 </html>

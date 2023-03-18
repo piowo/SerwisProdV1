@@ -250,6 +250,9 @@
     <Content Include="Views\Modules\Bad.cshtml" />
     <Content Include="Views\ShowResults\Index.cshtml" />
     <Content Include="Views\ShowResults\AddSearchHistory.cshtml" />
+    <Content Include="Views\ShowResults\UpdateSearchHistory.cshtml" />
+    <Content Include="Views\ShowResults\Bad.cshtml" />
+    <Content Include="Views\ShowResults\DeleteSearchHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

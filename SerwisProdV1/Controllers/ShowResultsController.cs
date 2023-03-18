@@ -88,5 +88,84 @@ namespace SerwisProdV1.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult UpdateSearchHistory()
+        {
+            ViewBag.cities = new Hashtable();
+            foreach (City city in cityService.GetCities().Result)
+            {
+                ViewBag.cities.Add(city.Name, city.Id);
+            }
+
+            ViewBag.modulesNames = new ArrayList();
+            foreach (Module module in moduleService.GetModules().Result)
+            {
+                ViewBag.modulesNames.Add(module.Name);
+            }
+            var sHId = Convert.ToInt32(Request["Id"]);
+            return View(SHService.GetSearchHistoryById(sHId));
+        }
+
+        [HttpPost]
+        public ActionResult FinalUpdateSearchHistory(SearchHistory searchHistory)
+        {
+            if (ModelState.IsValid)
+            {
+                var responce = SHService.UpdateSearchHistory(searchHistory);
+
+                if (responce.Message.Equals("Success"))
+                {
+                    return Redirect("Index");
+                }
+                else
+                {
+                    ViewBag.Message = responce.Message;
+                    return View("Bad");
+                }
+            }
+            ViewBag.cities = new Hashtable();
+            foreach (City city in cityService.GetCities().Result)
+            {
+                ViewBag.cities.Add(city.Name, city.Id);
+            }
+
+            ViewBag.modulesNames = new ArrayList();
+            foreach (Module module in moduleService.GetModules().Result)
+            {
+                ViewBag.modulesNames.Add(module.Name);
+            }
+            return View("UpdateSearchHistory", searchHistory);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteSearchHistory()
+        {
+            ViewBag.cities = new Hashtable();
+            foreach (City city in cityService.GetCities().Result)
+            {
+                ViewBag.cities.Add(city.Id, city.Name);
+            }
+            int sHId = Convert.ToInt32(Request["Id"]);
+            return View(SHService.GetSearchHistoryById(sHId));
+        }
+
+        [HttpPost]
+        public ActionResult FinalDeleteSearchHistory()
+        {
+
+            if (Request["Odpowiedz"] == "Tak")
+            {
+                var sHId = Convert.ToInt32(Request["sHId"]);
+                var responce = SHService.DeleteSearchHistory(sHId);
+
+                if (!responce.Message.Equals("Success"))
+                {
+                    ViewBag.Message = responce.Message;
+                    return View("Bad");
+                }
+
+            }
+            return Redirect("Index");
+        }
     }
 }
