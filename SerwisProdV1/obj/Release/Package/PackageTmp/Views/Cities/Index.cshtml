@@ -1,0 +1,72 @@
+﻿
+@model IEnumerable<SerwisProdV1.Models.City>
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lista miast</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Odśwież", "Index", "Cities", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Powróć", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Dodaj", "AddCity", "Cities")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <br /><br />
+        <h2>Lista wprowadzonych miast wraz z wstępnymi danymi kosztów</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Nr</th>
+                    <th>Nazwa</th>
+                    <th>Koszt transportu</th>
+                    <th>Koszt 1 godziny roboczej</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var rek in Model)
+                {
+                    <tr>
+                        <td>@rek.Id</td>
+                        <td>@rek.Name</td>
+                        <td>@rek.TransportCost</td>
+                        <td>@rek.CostOfWorkingHour</td>
+                        <td>
+                            @using (Html.BeginForm("UpdateCity", "Cities"))
+                            {
+                                <input type="hidden" name="Id" value="@rek.Id" />
+                                <input type="submit" value="Modyfikuj" />
+                            }
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("DeleteCity", "Cities"))
+                            {
+                                <input type="hidden" name="Id" value="@rek.Id" />
+                                <input type="submit" value="Usuń" />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

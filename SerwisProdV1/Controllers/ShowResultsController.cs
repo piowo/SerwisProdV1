@@ -40,7 +40,7 @@ namespace SerwisProdV1.Controllers
         [HttpGet]
         public ViewResult AddSearchHistory()
         {
-            
+
             ViewBag.cities = new Hashtable();
             foreach (City city in cityService.GetCities().Result)
             {
@@ -92,8 +92,10 @@ namespace SerwisProdV1.Controllers
         public ActionResult UpdateSearchHistory()
         {
             ViewBag.cities = new Hashtable();
+            ViewBag.cityName = new Hashtable();
             foreach (City city in cityService.GetCities().Result)
             {
+                ViewBag.cityName.Add(city.Id, city.Name);
                 ViewBag.cities.Add(city.Name, city.Id);
             }
 
@@ -124,8 +126,10 @@ namespace SerwisProdV1.Controllers
                 }
             }
             ViewBag.cities = new Hashtable();
+            ViewBag.cityName = new Hashtable();
             foreach (City city in cityService.GetCities().Result)
             {
+                ViewBag.cityName.Add(city.Id, city.Name);
                 ViewBag.cities.Add(city.Name, city.Id);
             }
 
@@ -134,7 +138,8 @@ namespace SerwisProdV1.Controllers
             {
                 ViewBag.modulesNames.Add(module.Name);
             }
-            return View("UpdateSearchHistory", searchHistory);
+            var sHId = Convert.ToInt32(Request["Id"]);
+            return View("UpdateSearchHistory",SHService.GetSearchHistoryById(sHId));
         }
 
         [HttpPost]

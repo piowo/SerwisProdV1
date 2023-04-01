@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SerwisProdV1.Models.Module>
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lista miast</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Odśwież", "Index", "Modules", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Powróć", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Dodaj", "AddModule", "Modules")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <br /><br />
+        <h2>Lista wprowadzonych części (modułów) wraz z dodatkowymi danymi</h2>
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Nr</th>
+                    <th>Nazwa</th>
+                    <th>Kod</th>
+                    <th>Cena</th>
+                    <th>Czas wykonania</th>
+                    <th>Masa</th>
+                    <th>Opis</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var rek in Model)
+                {
+                    <tr>
+                        <td>@rek.Id</td>
+                        <td>@rek.Name</td>
+                        <td>@rek.Code</td>
+                        <td>@rek.Price</td>
+                        <td>@rek.AssemblyTime</td>
+                        <td>@rek.Weight</td>
+                        <td>@rek.Description</td>
+                        <td>
+                            @using (Html.BeginForm("UpdateModule", "Modules"))
+                            {
+                                
+                                <input type="hidden" name="Id" value="@rek.Id" />
+                                <input type="submit" value="Modyfikuj" />
+                            }
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("DeleteModule", "Modules"))
+                            {
+                                <input type="hidden" name="Id" value="@rek.Id" />
+                                <input type="submit" value="Usuń" />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

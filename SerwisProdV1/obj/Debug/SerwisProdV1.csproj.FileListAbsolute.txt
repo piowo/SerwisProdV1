@@ -106,3 +106,4 @@ C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.csp
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja6.resources
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja7.resources
 C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.Migracja8.resources
+C:\Users\piowo\source\repos\SerwisProdV1\SerwisProdV1\obj\Debug\SerwisProdV1.Migrations.migracja10.resources
