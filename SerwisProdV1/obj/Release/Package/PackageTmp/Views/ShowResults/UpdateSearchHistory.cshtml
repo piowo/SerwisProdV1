@@ -1,5 +1,4 @@
-﻿
-@model SerwisProdV1.Models.SearchHistory
+﻿@model SerwisProdV1.Models.SearchHistory
 
 @{
     Layout = null;
@@ -28,8 +27,38 @@
     <br />
     <br />
     <div class="panel panel-success">
-        <div class="panel-heading text-center"><h4>Podaj nowe dane dla gotowego wyrobu nr @Model.Id</h4></div>
+        <div class="panel-heading text-center"><h4>Dane gotowego wyrobu, które zamierzasz zmodyfikować</h4></div>
         <div class="panel-body">
+            <table class="table table-sm table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nr</th>
+                        <th>Nazwa</th>
+                        <th>Powiązane miasto</th>
+                        <th>Moduły (części składowe)</th>
+                        <th>Koszt produkcji</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.Id</td>
+                        <td>@Model.Name</td>
+                        <td>@ViewBag.cityName[Model.CityId]</td>
+                        <td>
+                            <select>
+                                <option>Wyswietl wybrane części składowe</option>
+                                <option>@if (!Model.ModuleName1.IsEmpty()) {@Model.ModuleName1}</option>
+                                <option>@if (!Model.ModuleName2.IsEmpty()) {@Model.ModuleName2}</option>
+                                <option>@if (!Model.ModuleName3.IsEmpty()) {@Model.ModuleName3}</option>
+                                <option>@if (!Model.ModuleName4.IsEmpty()) {@Model.ModuleName4}</option>
+                            </select>
+                        </td>
+                        <td>@Model.ProductionCost</td>
+                </tbody>
+            </table>
+            <br />
+            <h4>Podaj nowe dane dla gotowego wyrobu nr @Model.Id</h4>
             @using (Html.BeginForm("FinalUpdateSearchHistory", "ShowResults", FormMethod.Post, new { @id = "Form1" }))
             {
                 @Html.ValidationSummary()

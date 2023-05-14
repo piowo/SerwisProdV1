@@ -191,10 +191,10 @@ Ten plik jest wykorzystywany przez proces publikowania/pakowania projektu sieci 
       <publishTime>05/24/2018 13:38:24</publishTime>
     </File>
     <File Include="bin/SerwisProdV1.dll">
-      <publishTime>03/18/2023 22:12:35</publishTime>
+      <publishTime>05/14/2023 13:24:14</publishTime>
     </File>
     <File Include="bin/SerwisProdV1.pdb">
-      <publishTime>03/18/2023 22:12:35</publishTime>
+      <publishTime>05/14/2023 13:24:14</publishTime>
     </File>
     <File Include="bin/SimpleInjector.dll">
       <publishTime>09/29/2022 12:02:52</publishTime>
@@ -344,7 +344,7 @@ Ten plik jest wykorzystywany przez proces publikowania/pakowania projektu sieci 
       <publishTime>03/15/2023 16:09:45</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>03/16/2023 14:22:12</publishTime>
+      <publishTime>05/14/2023 13:22:43</publishTime>
     </File>
     <File Include="Views/Modules/AddModule.cshtml">
       <publishTime>03/16/2023 11:39:59</publishTime>
@@ -377,10 +377,10 @@ Ten plik jest wykorzystywany przez proces publikowania/pakowania projektu sieci 
       <publishTime>03/18/2023 15:57:08</publishTime>
     </File>
     <File Include="Views/ShowResults/Index.cshtml">
-      <publishTime>03/18/2023 00:07:19</publishTime>
+      <publishTime>04/02/2023 00:15:34</publishTime>
     </File>
     <File Include="Views/ShowResults/UpdateSearchHistory.cshtml">
-      <publishTime>03/18/2023 15:22:45</publishTime>
+      <publishTime>04/02/2023 01:24:31</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>02/17/2023 19:56:05</publishTime>
